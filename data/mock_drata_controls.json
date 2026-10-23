@@ -1,0 +1,101 @@
+{
+  "controls": [
+    {
+      "id": "CTL-001",
+      "name": "Encryption at Rest",
+      "status": "passing",
+      "framework_references": ["ISO 27001 A.8.24", "SOC 2 CC6.7"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "IT Security"
+    },
+    {
+      "id": "CTL-002",
+      "name": "Encryption in Transit",
+      "status": "passing",
+      "framework_references": ["ISO 27001 A.8.24", "SOC 2 CC6.7"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "IT Security"
+    },
+    {
+      "id": "CTL-003",
+      "name": "SOC 2 Certification",
+      "status": "passing",
+      "framework_references": ["SOC 2"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "GRC Team"
+    },
+    {
+      "id": "CTL-004",
+      "name": "ISO 27001 Certification",
+      "status": "passing",
+      "framework_references": ["ISO 27001"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "GRC Team"
+    },
+    {
+      "id": "CTL-005",
+      "name": "Personnel Security",
+      "status": "passing",
+      "framework_references": ["ISO 27001 A.6.1", "SOC 2 CC1.4"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "HR"
+    },
+    {
+      "id": "CTL-006",
+      "name": "Vulnerability Management",
+      "status": "failing",
+      "framework_references": ["ISO 27001 A.8.8", "SOC 2 CC7.1"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "IT Operations",
+      "failure_reason": "Last penetration test exceeded 90-day SLA"
+    },
+    {
+      "id": "CTL-007",
+      "name": "Access Control",
+      "status": "passing",
+      "framework_references": ["ISO 27001 A.8.2", "SOC 2 CC6.1"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "IT Security"
+    },
+    {
+      "id": "CTL-008",
+      "name": "Incident Response",
+      "status": "passing",
+      "framework_references": ["ISO 27001 A.5.24", "SOC 2 CC7.3"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "IT Security"
+    },
+    {
+      "id": "CTL-009",
+      "name": "Data Residency",
+      "status": "passing",
+      "framework_references": ["GDPR Art. 46", "ISO 27001 A.5.33"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "Engineering"
+    },
+    {
+      "id": "CTL-010",
+      "name": "Business Continuity",
+      "status": "passing",
+      "framework_references": ["ISO 27001 A.5.29", "SOC 2 A1.1"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "Operations"
+    },
+    {
+      "id": "CTL-011",
+      "name": "Third Party Management",
+      "status": "passing",
+      "framework_references": ["ISO 27001 A.5.19", "SOC 2 CC9.2"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "Procurement"
+    },
+    {
+      "id": "CTL-012",
+      "name": "GDPR Compliance",
+      "status": "passing",
+      "framework_references": ["GDPR Art. 28", "GDPR Art. 30"],
+      "last_checked": "2025-01-10T09:00:00Z",
+      "owner": "DPO"
+    }
+  ]
+}

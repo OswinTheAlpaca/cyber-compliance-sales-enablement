@@ -1,0 +1,6 @@
+question_id,canonical_question,answer,drata_control_id,sensitivity_flag,category
+C001,Does your organization have a formal information security policy?,Yes. Our information security policy is reviewed annually and approved by executive leadership.,CTL-004,public,governance
+C002,Do you provide security training to all personnel?,All staff complete mandatory security awareness training upon joining and annually thereafter.,CTL-005,public,awareness_training
+C003,Do you have procedures for managing cryptographic keys?,Yes. Cryptographic key management follows NIST guidelines. Keys are rotated annually and stored in a hardware security module.,CTL-001,public,encryption
+C004,Do you maintain an inventory of all information assets?,Yes. An asset inventory is maintained and reviewed quarterly. All assets are assigned an owner.,CTL-006,public,asset_management
+C005,Do you have a formal vendor risk management process?,Yes. All vendors with access to customer data undergo a security assessment before onboarding and annually thereafter.,CTL-011,public,third_party
