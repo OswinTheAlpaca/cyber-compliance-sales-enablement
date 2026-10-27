@@ -32,10 +32,9 @@ def parse_csv(filepath: str) -> list[dict]:
                 "canonical_question":   sanitize_text(row.get("canonical_question", "")),
                 "answer":               sanitize_text(row.get("answer", "")),
                 "drata_control_id":     sanitize_text(row.get("drata_control_id", "")),
-                "sensitivity_flag":     sanitize_text(row.get("sensitivity_flag", "public")),
+                "source_sensitivity":   sanitize_text(row.get("sensitivity_flag", "")).lower(),
                 "category":             sanitize_text(row.get("category", "")),
                 "source":               filepath,
-                "control_status":       "unknown"   # populated later by Drata sync
             })
         return entries
 
@@ -60,4 +59,3 @@ def build_library(filepaths: list[str]) -> list[dict]:
     f"  Canonical library entries: {len(deduplicated)}" )
 
     return deduplicated
-
