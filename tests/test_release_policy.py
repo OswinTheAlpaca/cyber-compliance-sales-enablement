@@ -7,9 +7,12 @@ from library.control_loader import load_controls
 from library.release_policy import RESTRICTED_MESSAGE, customer_answer, enrich_entries
 
 
+# Verify that control data is validated and normalized before policy evaluation.
 class ControlLoaderTests(unittest.TestCase):
+    # Confirm valid statuses are retained and unsupported or missing statuses become unknown.
     def test_loads_control_statuses_and_marks_unusable_status_unknown(self):
         with tempfile.TemporaryDirectory() as temp_dir:
+            # Use a temporary file so the test does not depend on repository data.
             control_file = Path(temp_dir) / "controls.json"
             control_file.write_text(json.dumps({
                 "controls": [
@@ -25,6 +28,7 @@ class ControlLoaderTests(unittest.TestCase):
                 "CTL-003": "unknown",
             })
 
+    # Ensure documents without the required controls list fail validation.
     def test_rejects_malformed_control_document(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             control_file = Path(temp_dir) / "controls.json"
@@ -34,7 +38,9 @@ class ControlLoaderTests(unittest.TestCase):
                 load_controls(str(control_file))
 
 
+# Exercise the allow/restrict decisions and the customer-facing response.
 class ReleasePolicyTests(unittest.TestCase):
+    # Only public entries backed by passing controls should be approved.
     def test_only_public_answers_with_passing_controls_are_approved(self):
         entries = [
             {"answer": "public answer", "source_sensitivity": "public", "drata_control_id": "CTL-001"},
@@ -51,6 +57,7 @@ class ReleasePolicyTests(unittest.TestCase):
             "CTL-004": "unknown",
         })
 
+        # Check both the release decision and the control lookup result for each input.
         self.assertEqual(
             [entry["release_status"] for entry in result],
             ["approved", "restricted", "restricted", "restricted", "restricted", "restricted"],
@@ -60,6 +67,7 @@ class ReleasePolicyTests(unittest.TestCase):
             ["passing", "passing", "failing", "unmapped", "unknown", "passing"],
         )
 
+    # Confirm restricted responses do not reveal either the answer or internal control state.
     def test_restricted_customer_output_does_not_disclose_internal_state(self):
         entry = {
             "answer": "Confidential source answer",
@@ -69,10 +77,12 @@ class ReleasePolicyTests(unittest.TestCase):
 
         output = customer_answer(entry)
 
+        # Assert the safe message is returned and sensitive details stay hidden.
         self.assertEqual(output, RESTRICTED_MESSAGE)
         self.assertNotIn("failing", output)
         self.assertNotIn("Confidential source answer", output)
 
 
+# Keep the module runnable directly as well as through the test runner.
 if __name__ == "__main__":
     unittest.main()

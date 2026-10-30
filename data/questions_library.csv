@@ -19,3 +19,4 @@ Q017,How do you handle security incidents?,Our incident response plan follows NI
 Q018,Do you conduct security awareness training?,Yes. All employees complete annual security awareness training. Completion is tracked and reported in Drata.,CTL-005,public,awareness_training
 Q019,Do you have a GDPR Data Processing Agreement available?,Yes. Our DPA is available for signature upon request. It covers all processing activities under GDPR Article 28.,CTL-012,public,gdpr
 Q020,What frameworks do you comply with?,We currently maintain compliance with ISO 27001 SOC 2 Type II HiTrust and GDPR. Our compliance posture is monitored continuously in Drata.,CTL-004,public,certifications
+Q011,Do you use subprocessors?,Yes. A current list of subprocessors is maintained on our Trust page and customers are notified 30 days before any changes.,CTL-011,public,third_party
